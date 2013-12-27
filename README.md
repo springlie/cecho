@@ -1,6 +1,6 @@
 # cecho #
 
-Colorful echo for unix-like shell ( ascii color only)
+Colorful echo for unix-like shell ( ascii color only )
 
 ----------
 
@@ -8,7 +8,7 @@ Colorful echo for unix-like shell ( ascii color only)
 
 A **light** wrapper of `echo`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of command and shell script.
 
-Tested in [bash](http://www.gnu.org/software/bash/) and [zsh](http://www.zsh.org/).
+Tested in [zsh](http://www.zsh.org/). **NOT** compatible in [bash](http://www.gnu.org/software/bash/) now.
 
 ## Screenshot ##
 
@@ -16,7 +16,7 @@ Tested in [bash](http://www.gnu.org/software/bash/) and [zsh](http://www.zsh.org
 
 ## Install ##
 
-Before use `cecho`, simply source it in your .bashrc or .zshrc, or any shell script wanted to colorize like this: `source /path/to/cecho.sh`
+Before use `cecho`, simply source it in your .zshrc, or any shell script wanted to colorize like this: `source /path/to/cecho.sh`
 
 ## Usage ##
 
@@ -120,8 +120,8 @@ or
 
 - Action flag `-d` ( same as `-done` ) will **turn off all settings** ( fg, bg and action ), Thus, in **single** command, you have to set flags again to make it work well once there are other strings after `-d`.
 - Some special characters ( with centain format ) don't work well, such as `cecho "!"`. It's due to `echo`... use `cecho '!'` or `cecho !` instead.
-- It's **not** necessary use `-d` at the end of commands, `cecho` do it automatically.
-- Some actions can overlaied, and some can't.
+- It's **not** necessary use `-d` at the begin/end of commands, `cecho` do it automatically.
+- Actions can overlaied.
 
 ## Thanks ##
 
