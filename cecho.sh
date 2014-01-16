@@ -78,48 +78,64 @@ cecho()
 	-t "-B | -blank" -t "-t | -tab" -t "-n | -newline" -d -n
 	-g -hl -re -t -t -t -t "the src of above (as an example)" -t -t -t -d'
 
+	IS_NEED_BLANK=
+
 	while (($#!=0))
 	do
+
+	# set single blank
+
+	if [ -z $IS_NEED_BLANK ]
+	then
+		INTL_SINGLE_BLANK=""
+	else
+		INTL_SINGLE_BLANK=" "
+	fi
+
+	IS_NEED_BLANK=
+
 	case $1 in
 
 		# escape character
 
 		-B | -blank		)	msg+=" "; ;;
-		-t | -tab		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo "\t" || echo " "`;	;;
-		-n | -newline	)	[ -z $CECHO_IS_INACTIVE ] && msg+="\n" || msg+=" ";	;;
+		#-t | -tab		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo "\t" || echo $INTL_SINGLE_BLANK`;	;;
+		-t | -tab		)	msg+="\t";	;;
+		#-n | -newline	)	[ -z $CECHO_IS_INACTIVE ] && msg+="\n" || msg+=$INTL_SINGLE_BLANK;	;;
+		-n | -newline	)	msg+="\n"	;;
 
 		# foreground color
 
-		-bk| -black		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_BLACK	|| echo " "`;   ;;
-		-r | -red		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_RED		|| echo " "`;   ;;
-		-g | -green		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_GREEN	|| echo " "`;   ;;
-		-y | -yellow	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_YELLOW	|| echo " "`;   ;;
-		-b | -blue		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_BLUE	|| echo " "`;   ;;
-		-p | -purple	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_PURPLE	|| echo " "`;   ;;
-		-c | -cyan		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_CYAN	|| echo " "`;   ;;
-		-w | -white		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_WHITE	|| echo " "`;   ;;
-		-gr| -gray		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_WHITE	|| echo " "`;   ;;
+		-bk| -black		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_BLACK	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-r | -red		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_RED		|| echo $INTL_SINGLE_BLANK`;   ;;
+		-g | -green		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_GREEN	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-y | -yellow	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_YELLOW	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-b | -blue		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_BLUE	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-p | -purple	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_PURPLE	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-c | -cyan		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_CYAN	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-w | -white		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_WHITE	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-gr| -gray		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $FG_WHITE	|| echo $INTL_SINGLE_BLANK`;   ;;
 
 		# background color
 
-		-bbk| -b_black	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_BLACK	|| echo " "`;   ;;
-		-br | -b_red	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_RED		|| echo " "`;   ;;
-		-bg | -b_green	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_GREEN	|| echo " "`;   ;;
-		-by | -b_yellow	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_YELLOW	|| echo " "`;   ;;
-		-bb | -b_blue	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_BLUE	|| echo " "`;   ;;
-		-bp | -b_purple	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_PURPLE	|| echo " "`;   ;;
-		-bc | -b_cyan	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_CYAN	|| echo " "`;   ;;
-		-bw | -b_white	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_WHITE   || echo " "`;   ;;
-		-bgr| -b_gray	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_WHITE   || echo " "`;   ;;
+		-bbk| -b_black	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_BLACK	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-br | -b_red	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_RED		|| echo $INTL_SINGLE_BLANK`;   ;;
+		-bg | -b_green	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_GREEN	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-by | -b_yellow	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_YELLOW	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-bb | -b_blue	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_BLUE	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-bp | -b_purple	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_PURPLE	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-bc | -b_cyan	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_CYAN	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-bw | -b_white	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_WHITE   || echo $INTL_SINGLE_BLANK`;   ;;
+		-bgr| -b_gray	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BG_WHITE   || echo $INTL_SINGLE_BLANK`;   ;;
 
 		# action, some can be overlaid
 
-		-d | -done		)	msg+=`[ -z $CECHO_IS_INACTIVE  ] && echo $DONE		|| echo " "`;   ;;
-		-hl| -highlight	)	msg+=`[ -z $CECHO_IS_INACTIVE  ] && echo $HIGHLIGHT || echo " "`;   ;;
-		-ul| -underline	)	msg+=`[ -z $CECHO_IS_INACTIVE  ] && echo $UNDERLINE || echo " "`;   ;;
-		-bl| -blink		)	msg+=`[ -z $CECHO_IS_INACTIVE  ] && echo $BLINK		|| echo " "`;   ;;
-		-re| -reverse	)	msg+=`[ -z $CECHO_IS_INACTIVE  ] && echo $REVERSE	|| echo " "`;   ;;
-		-iv| -invisible )	msg+=`[ -z $CECHO_IS_INACTIVE  ] && echo $INVISIBLE	|| echo " "`;   ;;
+		-d | -done		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $DONE		|| echo $INTL_SINGLE_BLANK`;   ;;
+		-hl| -highlight	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $HIGHLIGHT	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-ul| -underline	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $UNDERLINE	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-bl| -blink		)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $BLINK		|| echo $INTL_SINGLE_BLANK`;   ;;
+		-re| -reverse	)	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $REVERSE	|| echo $INTL_SINGLE_BLANK`;   ;;
+		-iv| -invisible )	msg+=`[ -z $CECHO_IS_INACTIVE ] && echo $INVISIBLE	|| echo $INTL_SINGLE_BLANK`;   ;;
 
 		# functional
 
@@ -140,6 +156,7 @@ cecho()
 
 		*)
 			msg=$msg$1
+			IS_NEED_BLANK=1
 		;;
 	esac
 	shift
