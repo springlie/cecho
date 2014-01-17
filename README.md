@@ -8,7 +8,7 @@ Colorful echo for unix-like shell ( ascii color only )
 
 A **light** wrapper of `echo`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of command and shell script.
 
-Tested in [zsh](http://www.zsh.org/). **NOT completely compatible in [bash](http://www.gnu.org/software/bash/) yet**.
+Tested in [zsh](http://www.zsh.org/) and [bash](http://www.gnu.org/software/bash/).
 
 ## Screenshot ##
 
