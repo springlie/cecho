@@ -165,7 +165,8 @@ Or shortly:
 - It's **not** necessary use `-d` at the begin/end of commands, `cecho` do it automatically.
 - Actions can overlaied.
 
-## What's more ##                                                                                                                                                                                                                                                                                                                                       
+## What's more ##
+
 Another **C version** project is [coprintf](https://github.com/springlie/coprintf).
 
 ## Thanks ##
