@@ -1,6 +1,6 @@
 # cecho #
 
-Colorful `echo` for unix-like shell ( ascii color only ), decorate your terminal with more colors.
+Colorful `echo` for unix-like shell ( [**ascii color**](https://en.wikipedia.org/wiki/ANSI_escape_code) only ), decorate your terminal with more colors.
 
 ----------
 ----------
@@ -12,6 +12,8 @@ A light, self-adapting wrapper of `echo` with several useful features, makes eas
 Tested in [**zsh**](http://www.zsh.org/) and [**bash**](http://www.gnu.org/software/bash/).
 
 ## Screenshot ##
+
+![screenshot](https://raw.github.com/springlie/cecho/master/screenshot.gif)
 
 ##### Active #####
 

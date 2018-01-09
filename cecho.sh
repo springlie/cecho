@@ -61,7 +61,7 @@ cecho()
 	local msg=
 	
 	local version_info='cecho \
-		cecho -B 0.2 -B "<https://github.com/springlie/cecho>" -n \
+		cecho -B 0.21 -B "<https://github.com/springlie/cecho>" -n \
 		Written -B by -B Springlie -B "<springlie@163.com>"'
 
 	local help_info='cecho \
